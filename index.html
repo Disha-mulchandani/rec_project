@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-container">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#paint0_linear)"/>
+                    <path d="M2 17L12 22L22 17" stroke="url(#paint1_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="url(#paint2_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="7" x2="22" y2="7" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5"/>
+                            <stop offset="1" stop-color="#06B6D4"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="2" y1="19.5" x2="22" y2="19.5" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5"/>
+                            <stop offset="1" stop-color="#06B6D4"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear" x1="2" y1="14.5" x2="22" y2="14.5" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5"/>
+                            <stop offset="1" stop-color="#06B6D4"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>Career Path <span class="text-gradient">Recommender</span></h1>
+            </div>
+            <p class="subtitle">Discover your ideal career based on your skills, interests, and values.</p>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            
+            <!-- FORM SECTION -->
+            <section id="form-section" class="view-section active">
+                <form id="career-form">
+                    
+                    <!-- SKILLS -->
+                    <div class="form-group-section">
+                        <h2>1. Core Skills</h2>
+                        <p class="section-desc">Rate your proficiency from 1 (Novice) to 7 (Expert).</p>
+                        <div id="skills-container" class="questions-grid"></div>
+                    </div>
+
+                    <!-- INTERESTS (RIASEC) -->
+                    <div class="form-group-section">
+                        <h2>2. Interests & Personality</h2>
+                        <p class="section-desc">Rate how much you enjoy these areas from 1 (Not at all) to 7 (Very much).</p>
+                        <div id="interests-container" class="questions-grid"></div>
+                    </div>
+
+                    <!-- WORK VALUES -->
+                    <div class="form-group-section">
+                        <h2>3. Work Values</h2>
+                        <p class="section-desc">Rate the importance of these values to you from 1 (Least) to 7 (Most).</p>
+                        <div id="values-container" class="questions-grid"></div>
+                    </div>
+
+                    <!-- EDUCATION -->
+                    <div class="form-group-section">
+                        <h2>4. Education Level</h2>
+                        <p class="section-desc">Select your highest level of completed education.</p>
+                        <div class="select-wrapper">
+                            <select id="education-level" name="education" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="1">Less than High School</option>
+                                <option value="2">High School/GED</option>
+                                <option value="3">Some College</option>
+                                <option value="4">Associate's Degree</option>
+                                <option value="5">Bachelor's Degree</option>
+                                <option value="6">Post-Baccalaureate</option>
+                                <option value="7">Master's Degree</option>
+                                <option value="8">Professional Degree</option>
+                                <option value="9">Doctoral/Post-Doctoral</option>
+                            </select>
+                            <div class="select-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT -->
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn-primary">
+                            <span>Find My Career Matches</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- RESULTS SECTION -->
+            <section id="results-section" class="view-section">
+                <div class="results-header">
+                    <h2>Your Top Career Matches</h2>
+                    <p class="section-desc">Based on your unique profile, here are the best fits for you.</p>
+                </div>
+                
+                <div id="results-container" class="results-grid">
+                    <!-- Cards will be injected here -->
+                </div>
+
+                <div class="form-actions results-actions">
+                    <button type="button" id="start-over-btn" class="btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                        <span>Start Over</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JS -->
+    <script src="app.js"></script>
+</body>
+</html>
